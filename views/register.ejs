@@ -8,79 +8,77 @@
     <style>
         body { 
             font-family: 'Poppins', sans-serif; 
-            background-color: #f4f7fc; 
+            background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
             display: flex; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
             margin: 0; 
         }
+
         .container { 
-            background: white; 
+            background: rgba(255, 255, 255, 0.95); 
             padding: 3rem; 
-            border-radius: 15px; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05); 
+            border-radius: 24px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
             width: 350px; 
             text-align: center;
         }
+
         h2 { 
-            color: #2c3e50; 
-            margin-bottom: 30px; 
+            color: #5f2c82; 
+            margin-bottom: 5px; 
+            font-size: 26px;
             font-weight: 600;
         }
+
+        p.subtitle { color: #999; font-size: 14px; margin-bottom: 30px; margin-top: 0; }
+
         input { 
             width: 100%; 
             padding: 15px; 
             margin-bottom: 15px; 
-            border: 2px solid #edf2f7; 
-            border-radius: 12px; 
-            background: #f9fbfd; 
-            outline: none; 
+            border: 2px solid #f0f0f0; 
+            border-radius: 14px; 
+            font-family: 'Poppins', sans-serif;
             font-size: 14px;
+            outline: none;
             box-sizing: border-box;
             transition: 0.3s;
         }
-        input:focus {
-            border-color: #00cec9; /* Teal focus for register */
-            background: #fff;
-        }
+
+        input:focus { border-color: #a18cd1; background: #fff; }
+
         button { 
             width: 100%; 
-            background: #00cec9; /* Teal button */
+            background: #a18cd1; 
             color: white; 
             border: none; 
             padding: 15px; 
-            border-radius: 12px; 
-            font-weight: bold; 
+            border-radius: 14px; 
+            font-weight: 600; 
             cursor: pointer; 
             transition: 0.3s;
             font-size: 16px;
+            box-shadow: 0 5px 15px rgba(161, 140, 209, 0.4);
         }
-        button:hover {
-            background: #00b8b4;
-            transform: translateY(-2px);
-        }
-        .link {
-            margin-top: 20px;
-            display: block;
-            font-size: 14px;
-            color: #b2bec3;
-            text-decoration: none;
-        }
-        .link:hover {
-            color: #00cec9;
-        }
+
+        button:hover { background: #8e74c0; transform: translateY(-2px); }
+
+        .link { margin-top: 25px; display: block; font-size: 13px; color: #a18cd1; text-decoration: none; font-weight: 500; }
+        .link:hover { color: #5f2c82; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Create Account</h2>
+        <h2>Join Us</h2>
+        <p class="subtitle">Start your journey today.</p>
         <form action="/register" method="POST">
             <input type="text" name="username" placeholder="Choose a Username" required>
             <input type="password" name="password" placeholder="Choose a Password" required>
             <button type="submit">Sign Up</button>
         </form>
-        <a href="/login" class="link">Already have an account? Login</a>
+        <a href="/login" class="link">Already have an account? Log in</a>
     </div>
 </body>
 </html>
