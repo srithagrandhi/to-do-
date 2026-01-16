@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f4f7fc; /* Light clean blue-grey */
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
+            min-height: 100vh; 
+            padding-top: 50px;
+            margin: 0; 
+        }
+        .container { 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 15px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05); 
+            width: 400px; 
+        }
+        h2 { 
+            text-align: left; 
+            color: #2c3e50; 
+            font-size: 24px; 
+            margin-bottom: 25px; 
+            font-weight: 600;
+        }
+        form { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 30px; 
+        }
+        input { 
+            flex: 1; 
+            padding: 15px; 
+            border: 2px solid #edf2f7; 
+            border-radius: 12px; 
+            background: #f9fbfd; 
+            outline: none; 
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        input:focus {
+            border-color: #6c5ce7; /* Soft purple focus */
+            background: #fff;
+        }
+        button.add-btn { 
+            background: #6c5ce7; 
+            color: white; 
+            border: none; 
+            padding: 15px 20px; 
+            border-radius: 12px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s;
+        }
+        button.add-btn:hover {
+            background: #5a49d1;
+            transform: translateY(-2px);
+        }
+        ul { 
+            list-style: none; 
+            padding: 0; 
+        }
+        li { 
+            background: #fff; 
+            margin-bottom: 15px; 
+            padding: 15px; 
+            border-radius: 10px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+            border: 1px solid #edf2f7;
+            border-left: 5px solid #00cec9; /* Teal accent bar */
+            transition: 0.2s;
+        }
+        li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        }
+        .task-text {
+            font-size: 16px;
+            color: #2d3436;
+        }
+        .delete-btn { 
+            background: #ffeaa7; 
+            color: #d63031; 
+            border: none; 
+            padding: 8px 12px; 
+            border-radius: 8px; 
+            font-size: 12px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.2s;
+        }
+        .delete-btn:hover {
+            background: #ff7675;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tasks for Today</h2>
+        <form action="/add" method="POST">
+            <input type="text" name="taskName" placeholder="What needs to be done?" required>
+            <button type="submit" class="add-btn">Add</button>
+        </form>
+        <ul>
+            <% tasks.forEach(task => { %>
+                <li>
+                    <span class="task-text"><%= task.name %></span>
+                    <form action="/delete" method="POST" style="display:inline;">
+                        <input type="hidden" name="taskId" value="<%= task._id %>">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>
